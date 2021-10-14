@@ -10,7 +10,7 @@ export default function Timeline() {
   const { photos } = usePhotos(user);
 
   return (
-    <div className="grid grid-cols-4 lg:grid-cols-4">
+    <div className="grid col-span-3 grid-cols-3 lg:grid-cols-3">
       {!photos ? (
         <Skeleton count={4} width={640} height={500} className="mb-5" />
       ) : (
