@@ -34,7 +34,7 @@ export default function Login() {
     <div className="container flex flex-col lg:flex-row mx-auto max-w-screen-md items-center h-screen px-4 lg:px-0">
       <div className="flex flex-col w-full lg:w-2/5 justify-center h-full max-w-md m-auto">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
-          <h1 className="flex justify-center w-full">
+          <h1 className="flex justify-center w-full mb-3">
             <a>
               <img src="/images/logo.png" alt="Semana de la familia" />
             </a>
