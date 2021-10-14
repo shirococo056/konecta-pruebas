@@ -75,15 +75,6 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className="hidden lg:flex items-center cursor-pointer">
-                  <Link to={`/p/${user?.username}`}>
-                    <img
-                      className="rounded-full h-8 w-8 flex"
-                      src={`/images/avatars/${user?.username}.jpg`}
-                      alt={`${user?.username} profile`}
-                    />
-                  </Link>
-                </div>
               </>
             ) : (
               <>
