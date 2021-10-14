@@ -1,7 +1,5 @@
-import * as ImagePicker from 'expo-image-picker';
 import { useParams, useHistory } from 'react-router-dom';
 import React, { useState, useEffect, Button, Image, View, Platform } from 'react';
-import { Button, Image, View, Platform } from ',,/my-app/node_modules/react-native';
 import { getUserByUsername } from '../services/firebase';
 import * as ROUTES from '../constants/routes';
 import Header from '../components/header';
