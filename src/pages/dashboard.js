@@ -18,7 +18,6 @@ export default function Dashboard({ user: loggedInUser }) {
       <div className="bg-gray-background">
         <Header />
         <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg px-4 lg:px-0">
-          class="grid grid-flow-col grid-cols-3 grid-rows-3 gap-4"
           <Timeline />
           <Sidebar />
         </div>
