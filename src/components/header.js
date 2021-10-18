@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
@@ -11,6 +11,12 @@ export default function Header() {
   const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
   const history = useHistory();
+  const [setOpen] = useState(false);
+  const handleOpen = (e) => {
+    e.preventDefault();
+
+    setOpen(true);
+  };
 
   return (
     <header className="h-16 bg-white border-b border-gray-primary mb-8 px-4 lg:px-0">
@@ -28,21 +34,10 @@ export default function Header() {
           <div className="text-gray-700 text-center flex items-center align-items">
             {user ? (
               <>
-                <Link to={ROUTES.DASHBOARD} aria-label="Dashboard">
-                  <svg
-                    className="w-8 mr-6 text-black-light cursor-pointer"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
+                <Link onClick={handleOpen} aria-label="Dashboard">
+                  <a href>
+                    <img src="images\logo.png" alt="Semana de la familia" />
+                  </a>
                 </Link>
 
                 <button
