@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
@@ -11,12 +11,6 @@ export default function Header() {
   const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
   const history = useHistory();
-  const [setOpen] = useState(false);
-  const handleOpen = (e) => {
-    e.preventDefault();
-
-    setOpen(true);
-  };
 
   return (
     <header className="h-16 bg-white border-b border-gray-primary mb-8 px-4 lg:px-0">
@@ -35,9 +29,9 @@ export default function Header() {
             {user ? (
               <>
                 <Link onClick={handleOpen} aria-label="Dashboard">
-                  <a href>
-                    <img src="images\logo.png" alt="Semana de la familia" />
-                  </a>
+            <a href>
+            <img src="https://icons-for-free.com/iconfiles/png/512/add+photo+plus+upload+icon-1320184050039319890.png" alt="Semana de la familia" />
+            </a>  
                 </Link>
 
                 <button
