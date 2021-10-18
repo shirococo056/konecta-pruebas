@@ -88,9 +88,6 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": 'auto',
-      },
-      {
         "trailingComma": "none",
         "singleQuote": true,
         "printWidth": 100

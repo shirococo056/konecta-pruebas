@@ -29,9 +29,12 @@ export default function Header() {
             {user ? (
               <>
                 <Link onClick={handleOpen} aria-label="Dashboard">
-            <a href>
-            <img src="https://icons-for-free.com/iconfiles/png/512/add+photo+plus+upload+icon-1320184050039319890.png" alt="Semana de la familia" />
-            </a>  
+                  <a href>
+                    <img
+                      src="https://icons-for-free.com/iconfiles/png/512/add+photo+plus+upload+icon-1320184050039319890.png"
+                      alt="Semana de la familia"
+                    />
+                  </a>
                 </Link>
 
                 <button
