@@ -1,9 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Hashtags from 'react-highlight-hashtags';
-import SendIcon from '@material-ui/icons/Send';
-import firebase from 'firebase';
-import { db } from '../firebase/config';
+import { firebase, FieldValue } from '../lib/firebase';
 import { Context } from '../Context/GlobalState';
 import PostComment from './PostComment';
 import PostModal from './PostModal';
@@ -16,7 +12,7 @@ export default function Post({ post }) {
 
   // This effect will help to load post's comment from the firestore DB
   useEffect(() => {
-    db.collection('posts')
+    FieldValue.collection('posts')
       .doc(post.id)
       .collection('comments')
       .orderBy('timestamp', 'desc')
@@ -28,7 +24,7 @@ export default function Post({ post }) {
   const handleCommentForm = (e) => {
     e.preventDefault();
 
-    db.collection('posts')
+    FieldValue.collection('posts')
       .doc(post.id)
       .collection('comments')
       .add({

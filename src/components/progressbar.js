@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Avatar, Modal } from '@material-ui/core';
-import { db } from '../firebase/config';
+import { fielvalue, FieldValue } from '../lib/firebase.js';
 import PostComment from './PostComment';
 
 const PostModal = ({ post, isModal, setIsModal }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    db.collection('posts')
+    FieldValue.collection('posts')
       .doc(post.id)
       .collection('comments')
       .onSnapshot((snap) => {

@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { Avatar, Modal } from "@material-ui/core";
-import { db } from "../firebase/config";
-import PostComment from "./PostComment";
+import { Avatar, Modal } from '@material-ui/core';
+import { useEffect, useState } from 'react';
+import { FieldValue } from '../lib/firebase';
+import PostComment from './postComment.js';
 
 const PostModal = ({ post, isModal, setIsModal }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    db.collection("posts")
+    FieldValue.collection('posts')
       .doc(post.id)
-      .collection("comments")
+      .collection('comments')
       .onSnapshot((snap) => {
         setComments(snap.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       });
@@ -19,11 +19,7 @@ const PostModal = ({ post, isModal, setIsModal }) => {
     <Modal open={isModal} onClose={() => setIsModal(false)}>
       <div className="post_modal__body">
         <div className="post_modal__content">
-          <a
-            href="#!"
-            className="post_modal__close"
-            onClick={() => setIsModal(false)}
-          >
+          <a href="#!" className="post_modal__close" onClick={() => setIsModal(false)}>
             &times;
           </a>
           <div className="post__img">
