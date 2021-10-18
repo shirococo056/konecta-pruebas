@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { db } from '../lib/firebase/config';
+import { FieldValue } from '../lib/firebase';
 import Post from './post';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection('posts')
+    FieldValue.collection('posts')
       .orderBy('timestamp', 'desc')
       .onSnapshot((snapshot) => {
         setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
